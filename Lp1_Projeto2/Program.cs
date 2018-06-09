@@ -8,8 +8,15 @@ namespace Lp1_Projeto2
 {
     class Program
     {
-        static void Main(string[] args)
+        Board board = new Board();
+        Renderer renderer = new Renderer();
+
+        public void NewGame()
         {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Clear();
+            renderer.Render(board);
+            Console.ReadKey();
         }
     }
 }
