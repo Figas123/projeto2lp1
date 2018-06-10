@@ -10,11 +10,15 @@ namespace Lp1_Projeto2
     {
         public int X { get; set; }
         public int Y { get; set; }
+        public float Hp { get; set; }
+        public string Symbol { get; set; }
 
         public Player(int x, int y)
         {
             X = x;
             Y = y;
+            Hp = 100;
+            Symbol = "⨀";
         }
     }
 }
