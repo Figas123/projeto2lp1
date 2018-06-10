@@ -8,26 +8,25 @@ namespace Lp1_Projeto2
 {
     class Tile
     {
-        Position position;
+        public Position Position { get; set; }
+        public string State { get; set; }
 
-        private Objects[] objects;
-
-        public Tile(int x, int y)
+        public Tile(int x, int y, State state)
         {
-            position.Row = x;
-            position.Column = y;
-            objects = new Objects[5];
-        }
-
-        public char SymbolFor(Objects objects)
-        {
-            switch (objects)
+            Position.Row = x;
+            Position.Column = y;
+            if (state == Lp1_Projeto2.State.Unknown)
             {
-                case Objects.Empty: return '.';
-                case Objects.Player: return '⨀';
-                case Objects.Trap: return '☢';
-                default: return ' ';
+                State = "/////";
             }
-        }
+            if (state == Lp1_Projeto2.State.Known)
+            {
+                State = ".....";
+            }
+            if (state == Lp1_Projeto2.State.Exit)
+            {
+                State = "EXIT!";
+            }
+        }     
     }
 }
