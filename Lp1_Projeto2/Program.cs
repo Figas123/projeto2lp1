@@ -8,14 +8,14 @@ namespace Lp1_Projeto2
 {
     class Program
     {
-        Board board = new Board();
+        public World world = new World();
         Renderer renderer = new Renderer();
 
         public void NewGame()
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.Clear();
-            renderer.Render(board);
+            renderer.Render(world);
             Console.ReadKey();
         }
     }

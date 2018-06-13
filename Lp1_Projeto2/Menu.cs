@@ -12,7 +12,6 @@ namespace Lp1_Projeto2
 
         static void Main(string[] args)
         {
-            Board board = new Board();
             Renderer renderer = new Renderer();
             Program program = new Program();
 

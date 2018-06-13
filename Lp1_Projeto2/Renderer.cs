@@ -8,39 +8,37 @@ namespace Lp1_Projeto2
 {
     class Renderer
     {
-        public void Render(Board board)
+        public void Render(World world)
         {
-            string[,] tiles = new string[8, 8];
-            //Tile Tile = new Tile(0, 0, State.Unknown);
-
-            for (int row = 0; row < 8; row++)
+            Random random = new Random();
+            bool game = true;
+            
+            world.tile[random.Next(1, 8), 0].CreateTile('P', '.', '.', '.', '.');
+            world.tile[random.Next(1, 8), 7].CreateTile('E', 'X', 'I', 'T', '!');
+            while (game)
             {
-                for (int column = 0; column < 8; column++)
+                for (int row = 0; row < 8; row++)
                 {
-                    tiles[row, column] = RenderTile(board.GetState(new Position(row, column)));
-                    //Tile = new Tile(row, column, State.Unknown);
-                }
-            }
-            for (int row = 0; row < 8; row++)
-            {
-                //Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{tiles[row, 0]} - {tiles[row, 1]} - {tiles[row, 2]} " +
-                $"- {tiles[row, 3]} - {tiles[row, 4]} - {tiles[row, 5]} - {tiles[row, 6]} - {tiles[row, 7]}");
-                if (row < 7)
-                {
-                    Console.WriteLine("  |       |       |       |       |       |       |       |");
-                }
-            }
-        }
+                    for (int column = 0; column < 8; column++)
+                    {
+                        Console.Write($"{world.tile[row, column].FirstSymbol}{world.tile[row, column].SecondSymbol}" +
+                            $"{world.tile[row, column].ThirdSymbol}{world.tile[row, column].FourthSymbol}{world.tile[row, column].FifthSymbol}");
+                        if (column < 7)
+                        {
+                            Console.Write(" - ");
+                        }
+                        if (column == 7)
+                        {
+                            Console.Write("\n");
+                        }
+                    }
 
-        public string RenderTile(State state)
-        {
-            switch (state)
-            {
-                case State.Unknown: return "/////";
-                case State.Exit: return "EXIT!";
-                case State.Known: return ".....";
-                default: return "?????";
+                    if (row < 7)
+                    {
+                        Console.WriteLine("  |       |       |       |       |       |       |       |");
+                    }
+                }
+                Console.ReadKey();
             }
         }
     }
