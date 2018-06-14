@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    interface IExist
+    class Unknown
     {
-        int X { get; set; }
-        int Y { get; set; }
+        public string Symbol { get; set; }
+
+        public Unknown()
+        {
+            Symbol = "░";
+        }
     }
 }

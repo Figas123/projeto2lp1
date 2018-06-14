@@ -42,11 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Objects.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="Empty.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Exit.cs" />
-    <Compile Include="IExist.cs" />
     <Compile Include="IItem.cs" />
     <Compile Include="INPC.cs" />
     <Compile Include="IWeapon.cs" />
@@ -57,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Trap.cs" />
+    <Compile Include="Unknown.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Player : IExist
+    class Player
     {
-        public int X { get; set; }
-        public int Y { get; set; }
         public float Hp { get; set; }
         public string Symbol { get; set; }
 
-        public Player(int x, int y)
+        public Player()
         {
-            X = x;
-            Y = y;
             Hp = 100;
-            Symbol = "⨀";
+            Symbol = "⛨";
         }
     }
 }

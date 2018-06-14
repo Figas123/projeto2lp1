@@ -6,5 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    public enum Objects { Empty, Unexplored, Player, NeutralNPC, HostileNPC, Food, Weapon, Trap, Map }
+    class Empty
+    {
+        public string Symbol { get; set; }
+
+        public Empty()
+        {
+            Symbol = "⚊";
+        }
+    }
 }

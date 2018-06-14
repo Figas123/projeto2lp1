@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Exit : IExist
+    class Exit
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-
-        public Exit(int x, int y)
+        public Exit()
         {
-            X = x;
-            Y = y;
         }
     }
 }

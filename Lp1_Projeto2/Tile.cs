@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Tile
+    public class Tile : List<Object>
     {
-        public Position Position = new Position(0, 0);
-        public char symbol1, symbol2, symbol3, symbol4, symbol5;
+        public string symbol1, symbol2, symbol3, symbol4, symbol5;
 
-        public Tile(int x, int y)
+        public Tile() : base()
         {
-            Position.Row = x;
-            Position.Column = y;
         }
 
-        public void CreateTile(char FirstSymbol, char SecondSymbol, char ThirdSymbol, char FourthSymbol, char FifthSymbol)
+        public void CreateTile(string FirstSymbol, string SecondSymbol, string ThirdSymbol, string FourthSymbol, string FifthSymbol)
         {
             this.FirstSymbol = FirstSymbol;
             this.SecondSymbol = SecondSymbol;
@@ -26,31 +23,31 @@ namespace Lp1_Projeto2
             this.FifthSymbol = FifthSymbol;
         }
 
-        public char FirstSymbol
+        public string FirstSymbol
         {
             get { return symbol1; }
             set { symbol1 = value; }
         }
 
-        public char SecondSymbol
+        public string SecondSymbol
         {
             get { return symbol2; }
             set { symbol2 = value; }
         }
 
-        public char ThirdSymbol
+        public string ThirdSymbol
         {
             get { return symbol3; }
             set { symbol3 = value; }
         }
 
-        public char FourthSymbol
+        public string FourthSymbol
         {
             get { return symbol4; }
             set { symbol4 = value; }
         }
 
-        public char FifthSymbol
+        public string FifthSymbol
         {
             get { return symbol5; }
             set { symbol5 = value; }
