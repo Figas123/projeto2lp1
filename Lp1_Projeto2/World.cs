@@ -9,8 +9,7 @@ namespace Lp1_Projeto2
     class World
     {
         public Tile[,] array = new Tile[8, 8];
-        public List<Object> list = new List<Object>();
-
+        
         public Empty empty = new Empty();
         public Unknown unknown = new Unknown();
 

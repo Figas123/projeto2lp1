@@ -17,7 +17,7 @@ namespace Lp1_Projeto2
 
             while (chosing)
             {
-                Console.WriteLine("1. New game\n2. High scores\n3. Credits\n4. Quit");
+                Console.WriteLine("\n1. New game\n2. High scores\n3. Credits\n4. Quit");
                 ConsoleKeyInfo choice = Console.ReadKey();
                 if (char.IsDigit(choice.KeyChar))
                 {
@@ -29,23 +29,38 @@ namespace Lp1_Projeto2
                             chosing = false;
                             break;
                         case ConsoleKey.D2:
-                            //HighScores();
+                            HighScores();
                             Console.Clear();
-                            chosing = false;
                             break;
                         case ConsoleKey.D3:
-                            //Credits();
+                            Credits();
                             Console.Clear();
-                            chosing = false;
                             break;
                         case ConsoleKey.D4:
                             Console.Clear();
-                            chosing = false;
+                            Environment.Exit(0);
                             break;
                     }
                 }
                 else Console.Clear();
             }
+        }
+
+        public static void Credits()
+        {
+            Console.Clear();
+            Console.WriteLine("\nMade by:\n\tNuno Figueiredo - 21705451\n\t" +
+                "Tomás Nogueiro 21703305");
+            Console.WriteLine("\nPress any key to go back to the Main Menu.");
+            Console.ReadKey();
+        }
+
+        public static void HighScores()
+        {
+            Console.Clear();
+            Console.WriteLine("\nThis option is not implemented...");
+            Console.WriteLine("\nPress any key to go back to the Main Menu.");
+            Console.ReadKey();
         }
     }
 }
