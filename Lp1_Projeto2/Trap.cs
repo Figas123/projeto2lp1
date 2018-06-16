@@ -16,7 +16,7 @@ namespace Lp1_Projeto2
         {
             Damage = dam;
             Name = name;
-            Symbol = "☠";
+            Symbol = "☢";
         }
     }
 }

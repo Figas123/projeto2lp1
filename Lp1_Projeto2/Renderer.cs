@@ -15,72 +15,269 @@ namespace Lp1_Projeto2
 
             Random random = new Random();
             Exit exit = new Exit();
-            Empty empty = new Empty();
 
-            bool game = true;
             string moved = "NOPE";
             int playerX = random.Next(0, 8);
             int playerY = 0;
             int exitX = random.Next(0, 8);
             int exitY = 7;
 
-            world.array[playerX, playerY].CreateTile(player.Symbol, empty.Symbol,
-                empty.Symbol, empty.Symbol, empty.Symbol);
             world.array[playerX, playerY].Add(player);
-
-            world.array[exitX, exitY].CreateTile("E ", "X ", "I ", "T ", "! ");
             world.array[exitX, exitY].Add(exit);
 
-            while (game)
+            while (player.Hp > 0)
             {
+                Console.WriteLine($"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                    $"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━" +
+                    $"━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                    $"━━━━━━━━━┓");
+                Console.WriteLine($"┃                                    Ro" +
+                    $"gueLike                                         ┃    " +
+                    $"        Stats            ┃                Legend     " +
+                    $"         ┃");
+                Console.WriteLine($"┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                    $"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━" +
+                    $"━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                    $"━━━━━━━━━┫");
+                Console.WriteLine($"┃                                      " +
+                    $"                                                ┃    " +
+                    $"                         ┃                           " +
+                    $"         ┃");
+
                 for (int row = 0; row < 8; row++)
                 {
                     for (int column = 0; column < 8; column++)
                     {
-                        Console.Write($"{world.array[row, column].FirstSymbol}" +
-                            $"{world.array[row, column].SecondSymbol}" +
-                            $"{world.array[row, column].ThirdSymbol}" +
-                            $"{world.array[row, column].FourthSymbol}" +
-                            $"{world.array[row, column].FifthSymbol}");
+                        if (column == 0)
+                        {
+                            Console.Write("┃ ");
+                        }
+                        foreach (GameObject thing in world.array[row, column])
+                        {
+                            Console.Write(thing.ToString());
+                        }
+                        if (world.array[row, column].Count() < 4)
+                        {
+                            for (int i = 4 - world.array[row, column].Count(); i > 0; i--)
+                            {
+                                if (world.array[row, column].Contains(exit))
+                                {
+
+                                }
+                                else
+                                {
+                                    Console.Write("⚊");
+                                }
+                            }
+                        }
                         if (column < 7)
                         {
                             Console.Write(" - ");
                         }
                         if (column == 7)
                         {
+                            if (row == 0)
+                            {
+                                Console.Write($"┃    Current Level:     " +
+                                    $"{level:000}   ┃           Player - " +
+                                    $"{player.Symbol}              ┃");
+                            }
+                            if (row == 1)
+                            {
+                                Console.Write($"┃    Player HP:         " +
+                                    $"{player.Hp:000}   ┃            Empty - " +
+                                    $"⚊              ┃");
+                            }
+                            if (row == 2)
+                            {
+                                Console.Write($"┃    Weapon:    " +
+                                    $"Rusty Spoon   ┃       Unexplored - " +
+                                    $"░              ┃");
+                            }
+                            if (row == 3)
+                            {
+                                Console.Write($"┃    Inventory:        " +
+                                    $"099%   ┃              Map - " +
+                                    $"⍠              ┃");
+                            }
+                            if (row == 4)
+                            {
+                                Console.Write($"┃                             " +
+                                    $"┃             Trap - ☢              ┃");
+                            }
+                            if (row == 5)
+                            {
+                                Console.Write($"┃                             " +
+                                    $"┃             Food - ✚              ┃");
+                            }
+                            if (row == 6)
+                            {
+                                Console.Write($"┃                             " +
+                                    $"┃      Neutral NPC - ☮              ┃");
+                            }
+                            if (row == 7)
+                            {
+                                Console.Write($"┃                             " +
+                                    $"┃      Hostile NPC - ☠              ┃");
+                            }
                             Console.Write("\n");
                         }
                     }
-
                     if (row < 7)
                     {
-                        Console.WriteLine("    |            |            |    " +
-                            "        |            |            |            |            |");
+                        Console.Write("┃ ");
+                        Console.WriteLine("   |          |          |      " +
+                            "    |          |          |          |        " +
+                            "  |    ┃                             ┃        " +
+                            "                            ┃");
+                    }
+                    if (row == 7)
+                    {
+                        Console.WriteLine($"┃                              " +
+                            $"                                             " +
+                            $"           ┃                             ┃   " +
+                            $"                                 ┃");
+                        Console.WriteLine($"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                            $"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" +
+                            $"━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━" +
+                            $"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
                     }
                 }
 
-                Console.WriteLine("\nMessages:\n-----------");
+                Console.WriteLine("\n Messages:\n -----------");
                 if (moved != "NOPE")
                 {
-                    Console.WriteLine($"\n* You moved {moved}.");
+                    Console.WriteLine($"\n  * You moved {moved}.");
                 }
-                Console.WriteLine("\n-----------\n\nInputs:\n-----------");
-                Console.WriteLine("\n(w) - Move NORTH (a) - Move WEST\n(d) - Move EAST  (s) - Move SOUTH\n(q) - Quit Game");
-                Console.WriteLine("\n-----------\n\nStats\n----------");
-                Console.WriteLine("\nPlayer's HP: " + player.Hp + "\n");
-                Console.WriteLine("Current Lvl: " + level + "\n\n----------");
-                bool choosing = true;
+
+                Console.WriteLine("\n -----------\n\n What do I see?\n -----------");
+                // Get List of Items at North
+                Console.Write($" * NORTH : ");
+                if (playerX > 0)
+                {
+                    if (world.array[playerX - 1, playerY].Count() > 0)
+                    {
+                        foreach (GameObject thing in world.array[playerX - 1, playerY])
+                        {
+                            if (thing != player)
+                            {
+                                Console.Write($" {thing.Name}");
+                            }
+                        }
+                        Console.WriteLine(".");
+                    }
+                    else
+                    {
+                        Console.Write(" Empty.\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(" Wall.");
+                }
+                // Get List of Items at West
+                Console.Write($" * WEST  : ");
+                if (playerY > 0)
+                {
+                    if (world.array[playerX, playerY - 1].Count() > 0)
+                    {
+                        foreach (GameObject thing in world.array[playerX, playerY - 1])
+                        {
+                            if (thing != player)
+                            {
+                                Console.Write($" {thing.Name}");
+                            }
+                        }
+                        Console.WriteLine(".");
+                    }
+                    else
+                    {
+                        Console.Write(" Empty.\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(" Wall.");
+                }
+                // Get List of Items at East
+                Console.Write($" * EAST  : ");
+                if (playerY < 7)
+                {
+                    if (world.array[playerX, playerY + 1].Count() > 0)
+                    {
+                        foreach (GameObject thing in world.array[playerX, playerY + 1])
+                        {
+                            if (thing != player)
+                            {
+                                Console.Write($" {thing.Name}");
+                            }
+                        }
+                        Console.WriteLine(".");
+                    }
+                    else
+                    {
+                        Console.Write(" Empty.\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(" Wall.");
+                }
+                // Get List of Items at South
+                Console.Write($" * SOUTH : ");
+                if (playerX < 7)
+                {
+                    if (world.array[playerX + 1, playerY].Count() > 0)
+                    {
+                        foreach (GameObject thing in world.array[playerX + 1, playerY])
+                        {
+                            if (thing != player)
+                            {
+                                Console.Write($" {thing.Name}");
+                            }
+                        }
+                        Console.WriteLine(".");
+                    }
+                    else
+                    {
+                        Console.Write(" Empty.\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(" Wall.");
+                }
+                // Get List of Items at current position
+                Console.Write($" * HERE  : ");
+                if (world.array[playerX, playerY].Count() > 0)
+                {
+                    foreach (GameObject thing in world.array[playerX, playerY])
+                    {
+                        if (thing != player)
+                        {
+                            Console.Write($" {thing.Name}");
+                        }
+                    }
+                    Console.WriteLine(" Empty.");
+                }
+
+                Console.WriteLine("\n -----------\n\n Inputs:\n -----------");
+                Console.WriteLine("\n  (w) - Move NORTH (a) - Move WEST\n" +
+                    "  (d) - Move EAST  (s) - Move SOUTH\n  (q) - Quit Game");
+                Console.WriteLine("\n -----------");
+
+                bool choosingKey = true;
                 bool choosing2 = true;
                 bool choosing3 = true;
                 char choice = 'X';
                 char choice2 = 'X';
 
-                while (choosing)
+                while (choosingKey)
                 {
                     while (choosing2)
                     {
                         string choiceStr = Console.ReadLine();
-                        if (choiceStr.Length == 1 && (choiceStr == "w" || 
+                        if (choiceStr.Length == 1 && (choiceStr == "w" ||
                             choiceStr == "s" || choiceStr == "a" ||
                             choiceStr == "d" || choiceStr == "q"))
                         {
@@ -95,17 +292,10 @@ namespace Lp1_Projeto2
                             if (playerX > 0)
                             {
                                 world.array[playerX, playerY].Remove(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    empty.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
                                 playerX -= 1;
                                 world.array[playerX, playerY].Add(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    player.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
-                                choosing = false;
+                                choosingKey = false;
                                 moved = "NORTH";
-
                             }
                             Console.WriteLine("Can't Move on that direction!");
                             break;
@@ -113,15 +303,9 @@ namespace Lp1_Projeto2
                             if (playerX < 7)
                             {
                                 world.array[playerX, playerY].Remove(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    empty.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
                                 playerX += 1;
                                 world.array[playerX, playerY].Add(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    player.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
-                                choosing = false;
+                                choosingKey = false;
                                 moved = "SOUTH";
                             }
                             Console.WriteLine("Can't Move on that direction!");
@@ -130,15 +314,9 @@ namespace Lp1_Projeto2
                             if (playerY > 0)
                             {
                                 world.array[playerX, playerY].Remove(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    empty.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
                                 playerY -= 1;
                                 world.array[playerX, playerY].Add(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    player.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
-                                choosing = false;
+                                choosingKey = false;
                                 moved = "WEST";
                             }
                             Console.WriteLine("Can't Move on that direction!");
@@ -147,15 +325,9 @@ namespace Lp1_Projeto2
                             if (playerY < 7)
                             {
                                 world.array[playerX, playerY].Remove(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    empty.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
                                 playerY += 1;
                                 world.array[playerX, playerY].Add(player);
-                                world.array[playerX, playerY].CreateTile(
-                                    player.Symbol, empty.Symbol, empty.Symbol,
-                                    empty.Symbol, empty.Symbol);
-                                choosing = false;
+                                choosingKey = false;
                                 moved = "EAST";
                             }
                             Console.WriteLine("Can't Move on that direction!");

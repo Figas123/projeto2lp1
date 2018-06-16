@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Unknown
+    interface GameObject
     {
-        public string Symbol { get; set; }
-
-        public Unknown()
-        {
-            Symbol = "░";
-        }
+        string Name { get; set; }
     }
 }
