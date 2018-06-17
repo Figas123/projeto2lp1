@@ -8,17 +8,39 @@ namespace Lp1_Projeto2
 {
     class Program
     {
-        public World world = new World();
-        public Player player = new Player();
+        static Random random = new Random();
+        
+        World world = new World();
         Renderer renderer = new Renderer();
+        Messages messages = new Messages();
+        CheckAround check = new CheckAround();
+        Inputs inputs = new Inputs();
+        Commands commands = new Commands();
+        LevelUp checkLevelUp = new LevelUp();
+        Dead dead = new Dead();
 
-        int level = 1;
-        public void NewGame()
+        public void NewGame(GameCons cons)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.Clear();
-            renderer.Render(world, player, level);
-            Console.ReadKey();
+            world.CreateWorld(cons);
+            while (cons.player.Hp > 0)
+            {
+                renderer.Render(cons, world);
+                messages.ShowMessages(cons, world);
+                check.Check(cons, world);
+                inputs.WhatInputs();
+                commands.CheckInputs(cons, world);
+                cons.player.Hp--;
+                Console.Clear();
+                if (checkLevelUp.CheckLevelUp(cons, world) == true)
+                {
+                    world = new World();
+                    world.CreateWorld(cons);
+                    renderer.Render(cons, world);
+                }
+            }
+            dead.YourDead(cons);
         }
     }
 }

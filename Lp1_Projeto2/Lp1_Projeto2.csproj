@@ -42,7 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckAround.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Credits.cs" />
+    <Compile Include="Dead.cs" />
+    <Compile Include="Food.cs" />
+    <Compile Include="GameCons.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="HighScores.cs" />
+    <Compile Include="Inputs.cs" />
+    <Compile Include="LevelUp.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="NPC.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="IItem.cs" />

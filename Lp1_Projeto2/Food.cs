@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Trap : GameObject
+    class Food
     {
-        public float Damage { get; set; }
         public string Symbol { get; set; }
         public string Name { get; set; }
 
-        public Trap()
+        public Food()
         {
-            Damage = 5;
-            Symbol = "☢";
-            Name = "Hole";
+            Symbol = "✚";
+            Name = "Potato";
         }
 
         public override string ToString()

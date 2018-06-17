@@ -8,14 +8,18 @@ namespace Lp1_Projeto2
 {
     class Menu
     {
-        public static bool chosing = true;
 
         static void Main(string[] args)
         {
             Renderer renderer = new Renderer();
             Program program = new Program();
+            Credits credits = new Credits();
+            HighScores highScores = new HighScores();
+            GameCons cons = new GameCons();
 
-            while (chosing)
+            bool chosingMenu = true;
+
+            while (chosingMenu)
             {
                 Console.WriteLine("\n1. New game\n2. High scores\n3. Credits\n4. Quit");
                 ConsoleKeyInfo choice = Console.ReadKey();
@@ -24,16 +28,17 @@ namespace Lp1_Projeto2
                     switch (choice.Key)
                     {
                         case ConsoleKey.D1:
-                            program.NewGame();
+                            cons.Cons();
+                            program.NewGame(cons);
                             Console.Clear();
-                            chosing = false;
+                            chosingMenu = false;
                             break;
                         case ConsoleKey.D2:
-                            HighScores();
+                            highScores.ShowHighScores();
                             Console.Clear();
                             break;
                         case ConsoleKey.D3:
-                            Credits();
+                            credits.ShowCredits();
                             Console.Clear();
                             break;
                         case ConsoleKey.D4:
@@ -44,23 +49,6 @@ namespace Lp1_Projeto2
                 }
                 else Console.Clear();
             }
-        }
-
-        public static void Credits()
-        {
-            Console.Clear();
-            Console.WriteLine("\nMade by:\n\tNuno Figueiredo - 21705451\n\t" +
-                "Tomás Nogueiro 21703305");
-            Console.WriteLine("\nPress any key to go back to the Main Menu.");
-            Console.ReadKey();
-        }
-
-        public static void HighScores()
-        {
-            Console.Clear();
-            Console.WriteLine("\nThis option is not implemented...");
-            Console.WriteLine("\nPress any key to go back to the Main Menu.");
-            Console.ReadKey();
         }
     }
 }
