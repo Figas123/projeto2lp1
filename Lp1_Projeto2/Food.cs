@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Food
+    public class Food : IGameObject
     {
         public string Symbol { get; set; }
         public string Name { get; set; }

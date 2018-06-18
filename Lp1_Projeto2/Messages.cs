@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Messages
+    public class Messages
     {
         public void ShowMessages(GameCons cons, World world)
         {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class World
+    public class World
     {
-        static Random random = new Random();
+        private static Random random = new Random();
         
         public Tile[,] array = new Tile[8, 8];
 

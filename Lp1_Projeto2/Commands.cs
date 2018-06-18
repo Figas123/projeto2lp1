@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Commands
+    public class Commands
     {
         public void CheckInputs(GameCons cons, World world)
         {

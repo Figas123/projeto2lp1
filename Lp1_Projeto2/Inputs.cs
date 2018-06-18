@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Inputs
+    public class Inputs
     {
         public void WhatInputs()
         {

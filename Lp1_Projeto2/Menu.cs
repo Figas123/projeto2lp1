@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Menu
+    public class Menu
     {
 
         static void Main(string[] args)

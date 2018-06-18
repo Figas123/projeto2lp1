@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class LevelUp
+    public class LevelUp
     {
         public bool CheckLevelUp(GameCons cons, World world)
         {

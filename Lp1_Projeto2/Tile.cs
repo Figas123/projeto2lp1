@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    public class Tile : List<Object>
+    public class Tile : List<IGameObject>
     {
 
         public Tile() : base()

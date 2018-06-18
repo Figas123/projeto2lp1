@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    interface GameObject
+    public interface IGameObject
     {
         string Name { get; set; }
     }

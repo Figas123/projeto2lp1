@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    interface IWeapon
+    public interface IWeapon
     {
         float AP { get; set; }
         float Durability { get; set; }

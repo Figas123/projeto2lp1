@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Exit : GameObject
+    public class Exit : IGameObject
     {
         public string Name { get; set; }
 

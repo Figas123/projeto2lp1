@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class CheckAround
+    public class CheckAround
     {
         public void Check(GameCons cons, World world)
         {
@@ -17,7 +17,7 @@ namespace Lp1_Projeto2
             {
                 if (world.array[world.playerX - 1, world.playerY].Count() > 0)
                 {
-                    foreach (GameObject thing in world.array[world.playerX - 1, world.playerY])
+                    foreach (IGameObject thing in world.array[world.playerX - 1, world.playerY])
                     {
                         if (thing != cons.player)
                         {
@@ -41,7 +41,7 @@ namespace Lp1_Projeto2
             {
                 if (world.array[world.playerX, world.playerY - 1].Count() > 0)
                 {
-                    foreach (GameObject thing in world.array[world.playerX, world.playerY - 1])
+                    foreach (IGameObject thing in world.array[world.playerX, world.playerY - 1])
                     {
                         if (thing != cons.player)
                         {
@@ -65,7 +65,7 @@ namespace Lp1_Projeto2
             {
                 if (world.array[world.playerX, world.playerY + 1].Count() > 0)
                 {
-                    foreach (GameObject thing in world.array[world.playerX, world.playerY + 1])
+                    foreach (IGameObject thing in world.array[world.playerX, world.playerY + 1])
                     {
                         if (thing != cons.player)
                         {
@@ -89,7 +89,7 @@ namespace Lp1_Projeto2
             {
                 if (world.array[world.playerX + 1, world.playerY].Count() > 0)
                 {
-                    foreach (GameObject thing in world.array[world.playerX + 1, world.playerY])
+                    foreach (IGameObject thing in world.array[world.playerX + 1, world.playerY])
                     {
                         if (thing != cons.player)
                         {
@@ -111,7 +111,7 @@ namespace Lp1_Projeto2
             Console.Write($"  * HERE  : ");
             if (world.array[world.playerX, world.playerY].Count() > 0)
             {
-                foreach (GameObject thing in world.array[world.playerX, world.playerY])
+                foreach (IGameObject thing in world.array[world.playerX, world.playerY])
                 {
                     if (thing != cons.player)
                         if (thing != cons.player)

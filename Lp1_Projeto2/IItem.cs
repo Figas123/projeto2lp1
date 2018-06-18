@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    interface IItem : IWeight
+    public interface IItem : IWeight
     {
         string Name { get; set; }
 

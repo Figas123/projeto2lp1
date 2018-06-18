@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Trap : GameObject
+    public class Trap : IGameObject
     {
         public float Damage { get; set; }
         public string Symbol { get; set; }

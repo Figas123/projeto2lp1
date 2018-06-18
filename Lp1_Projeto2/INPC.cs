@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    interface INPC
+    public interface INPC
     {
         float HP { get; set; }
         float AP { get; set; }

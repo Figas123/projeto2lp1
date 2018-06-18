@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Program
+    public class Program
     {
-        static Random random = new Random();
-        
         World world = new World();
         Renderer renderer = new Renderer();
         Messages messages = new Messages();

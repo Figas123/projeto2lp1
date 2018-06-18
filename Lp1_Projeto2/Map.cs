@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Map : GameObject
+    public class Map : IGameObject
     {
         public string Symbol { get; set; }
         public string Name { get; set; }

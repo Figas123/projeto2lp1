@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class GameCons
+    public class GameCons
     {
         public Player player = new Player();
         public Exit exit = new Exit();

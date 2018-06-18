@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    class Renderer
+    public class Renderer
     {
         public void Render(GameCons cons, World world)
         {
@@ -36,7 +36,7 @@ namespace Lp1_Projeto2
                     {
                         Console.Write("┃ ");
                     }
-                    foreach (GameObject thing in world.array[row, column])
+                    foreach (IGameObject thing in world.array[row, column])
                     {
                         Console.Write(thing.ToString());
                     }
