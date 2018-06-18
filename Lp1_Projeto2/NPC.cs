@@ -8,35 +8,27 @@ namespace Lp1_Projeto2
 {
     public class NPC : IGameObject
     {
+        public bool Hostile { get; set; }
         public float HP { get; set; }
         public float AP { get; set; }
-        public bool Hostile { get; set; }
         public string Symbol { get; set; }
-        public string SymbolNeutral { get; set; }
-        public string SymbolHostile { get; set; }
         public string Name { get; set; }
 
-        public NPC()
+        public NPC(bool Hostile)
         {
-            Random random = new Random();
-
-            int value = random.Next(0, 2);
-            if (value == 0)
+            this.Hostile = Hostile;
+            HP = 20;
+            AP = 3;
+            if (Hostile)
             {
-                Hostile = false;
-                Symbol = "☮";
-                Name = "Neutral NPC";
-            }
-            else
-            {
-                Hostile = true;
                 Symbol = "☠";
                 Name = "Hostile NPC";
             }
-            HP = 20;
-            AP = 3;
-            SymbolNeutral = "☮";
-            SymbolHostile = "☠";
+            else
+            {
+                Symbol = "☮";
+                Name = "Neutral NPC";
+            }
         }
 
         public override string ToString()

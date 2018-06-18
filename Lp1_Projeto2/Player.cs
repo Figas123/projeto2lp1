@@ -16,7 +16,7 @@ namespace Lp1_Projeto2
         {
             Hp = 100;
             Symbol = "⛨";
-            Name = "wat?";
+            Name = "Player";
         }
 
         public override string ToString()

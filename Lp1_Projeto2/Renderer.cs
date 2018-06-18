@@ -100,13 +100,13 @@ namespace Lp1_Projeto2
                         {
                             Console.Write($"┃                             ┃" +
                                 $"      Neutral NPC - " +
-                                $"{cons.npc.SymbolNeutral}              ┃");
+                                $"{cons.npcN.Symbol}              ┃");
                         }
                         if (row == 7)
                         {
                             Console.Write($"┃                             ┃" +
                                 $"      Hostile NPC - " +
-                                $"{cons.npc.SymbolHostile}              ┃");
+                                $"{cons.npcH.Symbol}              ┃");
                         }
                         Console.Write("\n");
                     }

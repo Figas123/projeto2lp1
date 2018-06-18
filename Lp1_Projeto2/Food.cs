@@ -14,7 +14,7 @@ namespace Lp1_Projeto2
         public Food()
         {
             Symbol = "✚";
-            Name = "Potato";
+            Name = "Food";
         }
 
         public override string ToString()
