@@ -21,19 +21,27 @@ namespace Lp1_Projeto2
                     {
                         if (thing != cons.player)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write($" {thing.Name}");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                     }
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(".");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(" Empty.\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Wall.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             // Get List of Items at West
             Console.Write($"  * WEST  : ");
@@ -45,19 +53,27 @@ namespace Lp1_Projeto2
                     {
                         if (thing != cons.player)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write($" {thing.Name}");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                     }
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(".");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(" Empty.\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Wall.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             // Get List of Items at East
             Console.Write($"  * EAST  : ");
@@ -69,19 +85,27 @@ namespace Lp1_Projeto2
                     {
                         if (thing != cons.player)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write($" {thing.Name}");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                     }
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(".");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(" Empty.\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Wall.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             // Get List of Items at South
             Console.Write($"  * SOUTH : ");
@@ -93,33 +117,53 @@ namespace Lp1_Projeto2
                     {
                         if (thing != cons.player)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write($" {thing.Name}");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                     }
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(".");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(" Empty.\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Wall.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             // Get List of Items at current position
             Console.Write($"  * HERE  : ");
             if (world.array[world.playerX, world.playerY].Count() > 0)
             {
-                foreach (IGameObject thing in world.array[world.playerX, world.playerY])
+                if (world.array[world.playerX, world.playerY].Count > 1)
                 {
-                    if (thing != cons.player)
+                    foreach (IGameObject thing in world.array[world.playerX, world.playerY])
+                    {
                         if (thing != cons.player)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write($" {thing.Name}");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
+                    }
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(".");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
-                Console.WriteLine(" Empty.");
+                if (world.array[world.playerX, world.playerY].Count == 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write(" Empty.\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
             Console.WriteLine("\n -----------");
         }
