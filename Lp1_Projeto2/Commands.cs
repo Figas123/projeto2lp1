@@ -23,7 +23,10 @@ namespace Lp1_Projeto2
                     string choiceKeyStr = Console.ReadLine();
                     if (choiceKeyStr.Length == 1 && (choiceKeyStr == "w" ||
                         choiceKeyStr == "s" || choiceKeyStr == "a" ||
-                        choiceKeyStr == "d" || choiceKeyStr == "q"))
+                        choiceKeyStr == "d" || choiceKeyStr == "q" ||
+                        choiceKeyStr == "f" || choiceKeyStr == "e" ||
+                        choiceKeyStr == "u" || choiceKeyStr == "v" ||
+                        choiceKeyStr == "i"))
                     {
                         choiceKey = Convert.ToChar(choiceKeyStr);
                         break;
@@ -98,6 +101,34 @@ namespace Lp1_Projeto2
                                 choosingQuit = false;
                                 break;
                         }
+                        break;
+                    case 'f':
+                        Console.WriteLine("You decide to frantically swing your " +
+                            "spoon... Fortunatly you didnt die! It looks like " +
+                            "this feature is not implemented...");
+                        Console.WriteLine("Choose something else...");
+                        break;
+                    case 'e':
+                        Console.WriteLine("You decide to pick up a stone but " +
+                            "it can't be done! It looks like this feature is not implemented...");
+                        Console.WriteLine("Choose something else...");
+                        break;
+                    case 'u':
+                        Console.WriteLine("You decide to use your mind and think!" +
+                            " Its not going so well... You figured that this " +
+                            "feature is not implemented...");
+                        Console.WriteLine("Choose something else...");
+                        break;
+                    case 'v':
+                        Console.WriteLine("It looks like you dropped your spoon... " +
+                            "You instantly regret your decision and pick it " +
+                            "back up since this feature is not implemented...");
+                        Console.WriteLine("Choose something else...");
+                        break;
+                    case 'i':
+                        Console.WriteLine("We regret to informe you that " +
+                            "this feature is not yet implemented...");
+                        Console.WriteLine("Choose something else...");
                         break;
                 }
             }
