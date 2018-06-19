@@ -12,10 +12,10 @@ namespace Lp1_Projeto2
         
         public Tile[,] array = new Tile[8, 8];
 
-        public int exitX = random.Next(0, 8);
-        public int exitY = 7;
         public int playerX = random.Next(0, 8);
         public int playerY = 0;
+        public int exitX = random.Next(0, 8);
+        public int exitY = 7;
         public string moved = "NOPE";
 
         public void CreateWorld(GameCons cons)
@@ -29,6 +29,20 @@ namespace Lp1_Projeto2
             }
             array[playerX, playerY].Add(cons.player);
             array[exitX, exitY].Add(cons.exit);
+            int mapX = random.Next(0, 8);
+            int mapY = random.Next(0, 8);
+            while (array[mapX, mapY].Contains(cons.map) == false)
+            {
+                if (array[mapX, mapY].Contains(cons.exit) == false)
+                {
+                    array[mapX, mapY].Add(cons.map);
+                }
+                else
+                {
+                    mapX = random.Next(0, 8);
+                    mapY = random.Next(0, 8);
+                }
+            }
         }
     }
 }

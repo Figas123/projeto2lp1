@@ -51,11 +51,28 @@ namespace Lp1_Projeto2
                     }
                     if (world.array[row, column].isVisable)
                     {
-                        foreach (IGameObject thing in world.array[row, column])
+                        if (world.array[row, column].Contains(cons.player))
                         {
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            Console.Write(thing.ToString());
+                            Console.Write(cons.player.ToString());
                             Console.ForegroundColor = ConsoleColor.White;
+                            foreach (IGameObject thing in world.array[row, column])
+                            {
+                                if (thing != cons.player)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                    Console.Write(thing.ToString());
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                }
+                            }
+                        }
+                        if (world.array[row, column].Contains(cons.player) == false) {
+                            foreach (IGameObject thing in world.array[row, column])
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                Console.Write(thing.ToString());
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
                         }
                         if (world.array[row, column].Count() < 4)
                         {
