@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    public interface IItem : IWeight
+    public interface IItem
     {
         string Name { get; set; }
 
-        void PickUp();
-        void Use();
+        void PickUp(GameCons cons, World world);
     }
 }

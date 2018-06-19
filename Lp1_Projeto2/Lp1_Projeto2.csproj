@@ -60,7 +60,6 @@
     <Compile Include="IItem.cs" />
     <Compile Include="INPC.cs" />
     <Compile Include="IWeapon.cs" />
-    <Compile Include="IWeight.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

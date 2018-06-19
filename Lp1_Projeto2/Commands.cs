@@ -13,8 +13,10 @@ namespace Lp1_Projeto2
             bool choosing = true;
             bool choosingKey = true;
             bool choosingQuit = true;
+            bool choosingItem = true;
             char choiceKey = 'X';
             char choiceKeyQuit = 'X';
+            char choiceKeyItem = 'X';
 
             while (choosing)
             {
@@ -98,19 +100,99 @@ namespace Lp1_Projeto2
                                 Environment.Exit(0);
                                 break;
                             case 'n':
-                                choosingQuit = false;
                                 break;
+                        }
+                        break;
+                    case 'e':
+                        if (world.array[world.playerX, world.playerY].Contains(cons.map) ||
+                            world.array[world.playerX, world.playerY].Contains(cons.food))
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Select an item to Pick Up.\n -----------");
+                            Console.WriteLine("0 - Go Back.");
+                            int counter = 1;
+                            foreach (IGameObject thing in world.array[world.playerX, world.playerY])
+                            {
+                                IItem item = thing as IItem;
+
+                                if (item != null)
+                                {
+                                    Console.WriteLine($"{counter} - {thing.Name}.");
+                                    counter++;
+                                }
+                            }
+                            while (choosingItem)
+                            {
+                                string choiceKeyItemStr = Console.ReadLine();
+                                int limit = 0;
+                                for (int i = 0; i < world.array[world.playerX, world.playerY].Count(); i++)
+                                {
+                                    limit++;
+                                }
+                                int choiceKeyItemInt = Convert.ToInt32(choiceKeyItemStr);
+                                if (choiceKeyItemStr.Length == 1 && choiceKeyItemInt <= limit)
+                                {
+                                    choiceKeyItem = Convert.ToChar(choiceKeyItemStr);
+                                    choosingItem = false;
+                                    break;
+                                }
+                                Console.WriteLine("Wrong Inupt, try again...");
+                            }
+                            foreach (IGameObject thing in world.array[world.playerX, world.playerY])
+                            {
+                                IItem item = thing as IItem;
+
+                                if (item != null)
+                                {
+                                    switch (choiceKeyItem)
+                                    {
+                                        case '0':
+                                            choosing = false;
+                                            break;
+                                        case '1':
+                                            if (world.array[world.playerX, world.playerY].Count > 1)
+                                            {
+                                                item.PickUp(cons, world);
+                                                choosing = false;
+                                                break;
+                                            }
+                                            Console.WriteLine("Select a valid option.");
+                                            continue;
+                                        case '2':
+                                            if (world.array[world.playerX, world.playerY].Count > 2)
+                                            {
+                                                item.PickUp(cons, world);
+                                                choosing = false;
+                                                break;
+                                            }
+                                            Console.WriteLine("Select a valid option.");
+                                            continue;
+                                        case '3':
+                                            if (world.array[world.playerX, world.playerY].Count > 3)
+                                            {
+                                                item.PickUp(cons, world);
+                                                choosing = false;
+                                                break;
+                                            }
+                                            Console.WriteLine("Select a valid option.");
+                                            continue;
+                                        default:
+                                            Console.WriteLine("Select a valid option.");
+                                            continue;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You picked up a rock... It doesnt" +
+                                " seem very useful so you decide to drop it.");
                         }
                         break;
                     case 'f':
                         Console.WriteLine("You decide to frantically swing your " +
                             "spoon... Fortunatly you didnt die! It looks like " +
                             "this feature is not implemented...");
-                        Console.WriteLine("Choose something else...");
-                        break;
-                    case 'e':
-                        Console.WriteLine("You decide to pick up a stone but " +
-                            "it can't be done! It looks like this feature is not implemented...");
                         Console.WriteLine("Choose something else...");
                         break;
                     case 'u':
