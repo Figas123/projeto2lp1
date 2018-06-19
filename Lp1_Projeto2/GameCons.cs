@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
+    /// <summary>
+    /// Class to store the Game's constants
+    /// </summary>
     public class GameCons
     {
         public Player player = new Player();
@@ -17,7 +20,9 @@ namespace Lp1_Projeto2
         public NPC npcN = new NPC(false);
 
         public int level = 1;
-
+        /// <summary>
+        /// The GameCons constructor
+        /// </summary>
         public void Cons()
         {
         }

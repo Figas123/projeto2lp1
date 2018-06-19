@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
-    public interface IItem
+    /// <summary>
+    /// Interface for everything that's able to be picked up
+    /// </summary>
+    public interface IItem : IGameObject
     {
-        string Name { get; set; }
-
+        /// <summary>
+        /// Method to pick up the item
+        /// </summary>
+        /// <param name="cons">The global variables</param>
+        /// <param name="world">The current world</param>
         void PickUp(GameCons cons, World world);
     }
 }

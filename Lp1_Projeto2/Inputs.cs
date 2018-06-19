@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lp1_Projeto2
 {
+    /// <summary>
+    /// Class to display to the user what inputs he can choose
+    /// </summary>
     public class Inputs
     {
+        /// <summary>
+        /// Displays the valid inputs to the user
+        /// </summary>
         public void WhatInputs()
         {
             Console.WriteLine("\n Inputs:\n -----------");
