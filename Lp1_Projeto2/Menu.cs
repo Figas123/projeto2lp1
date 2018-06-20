@@ -14,7 +14,6 @@ namespace Lp1_Projeto2
         static void Main(string[] args)
         {
             // Initializing required stuff
-            Renderer renderer = new Renderer();
             Program program = new Program();
             Credits credits = new Credits();
             HighScores highScores = new HighScores();
